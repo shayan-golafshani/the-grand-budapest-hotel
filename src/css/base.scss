@@ -36,7 +36,7 @@ nav {
   background: pink;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-radius: $main-radius;
   padding-top: $main-padding;
 }
@@ -84,6 +84,9 @@ footer {
   background: rgb(250, 89, 143);
   border-radius: $main-radius;
   padding-top: $main-padding;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 #flag{
@@ -110,5 +113,8 @@ footer {
     "content2"
     "content3"
     "footer";
+  }
+  footer {
+  flex-direction: column;
   }
 }
