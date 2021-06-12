@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +10,57 @@
 </head>
 <body>
   <div class="container">
-    <nav>Navigation Bar</nav>
-    <main>Main Content Area</main>
-    <aside id="sidebar">Sidebar</aside>
-    <section id="content1">Content 1</section>
-    <section id="content2">Content 2</section>
-    <section id="content3">Content 3</section>
-    <footer>Footer</footer>
+    <nav>
+      <img id="flag" src="./images/hungary.png" alt="Small image of the Hungarian flag">
+      <div class="hotel-title" >
+        <p>The Grand Budapest Hotel</p>
+        <p> You won't leave Hungary, hungry for a better time</p>
+      </div>
+    </nav>
+    <main>
+      <p>Main Content Area</p>
+      <img src="./images/the-grand-budapest-hotel.png" alt="The Grand Budapest Hotel animated as a pink old-fashioned hotel, with a steel sign overhead.">
+    </main>
+    <aside id="sidebar">
+      <p>Sidebar</p>
+      <p> The Grand Budapest Hotel</p>
+      <p>Welcome : Demaceo Vincent</p>
+      <p class="total-spent"> Lifetime accrued points: insert total spent</p>
+      <form action="">
+        <label for="check-in">Check-in</label>
+        <!-- fix lable to match the input type -->
+        <input type="date" class="date">
+        <br>
+        <label for="rooms">Choose a room-type:</label>
+    <select name="rooms" id="rooms">
+      <option value="base">Base</option>
+      <option value="suite">Suite</option>
+      <option value="grand">Grand-Suite</option>
+      <option value="pent">Penthouse</option>
+    </select>
+  <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </aside>
+    <section id="content1">
+      <h3>Amenities</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta rem id reiciendis similique a laudantium! Placeat amet quas, consectetur soluta saepe omnis excepturi inventore quo?</p>
+    </section>
+    <section id="content2">
+      <h3>Reviews</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta rem id reiciendis similique a laudantium! Placeat amet quas, consectetur soluta saepe omnis excepturi inventore quo?</p>
+    </section>
+    <section id="content3">
+      <h3>About US</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta rem id reiciendis similique a laudantium! Placeat amet quas, consectetur soluta saepe omnis excepturi inventore quo?</p>
+    </section>
+    <footer>
+      <p>Footer</p>
+      <p>Contact us</p>
+      <p>Location</p>
+      <p>Transportation</p>
+    </footer>
   </div>
-
-
   <!-- <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
   
   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
