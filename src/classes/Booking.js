@@ -7,7 +7,16 @@ export class Booking {
     this.roomServiceCharges = bookingInfo.roomServiceCharges || [];
   }
 
+  //May want to use a spread operator here later, so I can post multiple charges
+  //w/out iterating
   addCharges(chargeAmount) {
     this.roomServiceCharges.push(chargeAmount);
+  }
+
+  tallyCharges() {
+    return this.roomServiceCharges.reduce((tally, charge) => {
+      tally += charge
+      return tally;
+    }, 0);
   }
 }
