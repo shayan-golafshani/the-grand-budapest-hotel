@@ -1,13 +1,18 @@
 class Customer {
-  constructor(bookingInfo, lifeTimeSpending) {
+  constructor(bookingInfo, lifeTimeSpending, id, name) {
     //properties
     ///this is an array of booking objects with all the info needed
     this.bookings = bookingInfo || [];
 
+    this.nextBooking = new Date () || "Jan. 1st, 2100";
+    
     //this is the the total amount that a customer has spent in their lifetime at the GBH
     this.totalSpent = lifeTimeSpending || 0;
 
-    this.nextBooking = new Date () || "Jan. 1st, 2100";
+    //customer id
+    this.id = id;
+    //customer's name
+    this.name = name;
   }
 
     //methods
