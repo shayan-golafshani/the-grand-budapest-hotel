@@ -1,7 +1,41 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+$primary-background: radial-gradient(circle, rgba(251, 63, 144, 0.701) 0%, rgba(252,70,107,1) 100%);
 ;
 
 body {
   background: $primary-background;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+}
+
+nav {
+  background: pink;
+}
+
+main {
+  background: rgb(234, 199, 28);
+}
+
+#sidebar {
+ background: rgb(156, 87, 225);
+}
+
+#content1 {
+ background: white;
+}
+
+#content2 {
+  background: whitesmoke;
+}
+
+#content3 {
+  background: wheat;
+}
+footer {
+  background: palevioletred;
 }
