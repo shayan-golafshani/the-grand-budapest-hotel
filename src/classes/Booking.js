@@ -6,4 +6,8 @@ export class Booking {
     this.roomNumber = bookingInfo.roomNumber;
     this.roomServiceCharges = bookingInfo.roomServiceCharges || [];
   }
+
+  addCharges(chargeAmount) {
+    this.roomServiceCharges.push(chargeAmount);
+  }
 }
