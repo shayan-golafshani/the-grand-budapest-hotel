@@ -21,4 +21,18 @@ describe.only('Booking', () => {
     expect(booking1.roomNumber).to.equal(allBookings[0].roomNumber);
     expect(booking1.roomServiceCharges).to.equal(allBookings[0].roomServiceCharges);
   });
+
+  it("Should have a method to add room service charges!", () => {
+    booking1.addCharges(27);
+    expect(booking1.roomServiceCharges[0]).to.equal(27);
+
+    booking1.addCharges(30);
+    booking1.addCharges(40);
+    expect(booking1.roomServiceCharges[1]).to.equal(30);
+    expect(booking1.roomServiceCharges[2]).to.equal(40);
+  });
+
+  it("Should have a method to tally all room service charges!", () => {
+    expect(booking1.tallyCharges()).to.equal(97);
+  })
 });
