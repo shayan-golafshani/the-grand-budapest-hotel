@@ -27,9 +27,7 @@ let sendData = (sentData, url) => {
   return fetch(url, {
     method: 'POST',
     body: JSON.stringify(sentData),
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    headers: {'Content-Type': 'application/json'},
   })
     .then(response => response.json())
     .then(json => console.log("Json post being sent from the apiCalls.js", json))
