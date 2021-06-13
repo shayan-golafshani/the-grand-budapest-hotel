@@ -58,10 +58,5 @@ class Customer {
     //sorry there are no available rooms of the room type you'd like
     // at the selected date;
   }
-
-
-
-
 }
-
 module.exports = Customer; 
