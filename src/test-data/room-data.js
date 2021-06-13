@@ -78,5 +78,5 @@ export const allRooms = [
     bedSize: "twin",
     numBeds: 1,
     costPerNight: 497.64
-  }
+  },
 ]
