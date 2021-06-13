@@ -44,4 +44,15 @@ describe.only('Customer', () => {
     let roomDetails  = customer1.getAvailableRoomDetails(allRooms)
     expect(roomDetails).to.deep.equal(roomDeets);
   });
+
+  it("Should filter a list of available rooms by roomType", () => {
+    const roomDeets = [allRooms[1], allRooms[2]];
+    customer1.filterRoomAvailabilityByDate("2020/04/22", bookings);
+    let roomDetails  = customer1.getAvailableRoomDetails(allRooms)
+    expect(roomDetails).to.deep.equal(roomDeets);
+
+    let filteredByType = customer1.filterRoomsByRoomType(allRooms, "suite");
+
+    expect(filteredByType).to.deep.equal([allRooms[1]]);
+  })
 });
