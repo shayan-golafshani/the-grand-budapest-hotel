@@ -60,18 +60,18 @@ describe.only('Customer', () => {
     expect(customer1.availableRoomNumsByType).to.deep.equal([allRooms[1].number]);
   });
 
-  it.only("Should be able to return an array of all the customer's bookings", () => {
+  it("Should be able to return an array of all the customer's bookings", () => {
     let customerBookings = customer1.viewMyBookings(bookings);
     expect(customerBookings).to.deep.equal([bookings[0]]);
   });
 
-  it.only('Should be able to return the total amount a specific customer has spent', () => {
+  it('Should be able to return the total amount a specific customer has spent', () => {
     let total = customer1.viewCustomerTotalSpending(bookings, allRooms);
     expect(customer1.totalSpent).to.equal(allRooms[0].costPerNight);
   });
 
 
-  it.only("Should be able to check room availability", () => {
+  it("Should be able to check room availability", () => {
     let bool = customer1.checkRoomAvailability("2020/04/22", bookings, allRooms, "suite");
     let bool2 = customer2.checkRoomAvailability("2020/04/22", bookings, allRooms, "residential suite");
     expect(bool).to.be.true;
