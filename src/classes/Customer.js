@@ -1,19 +1,29 @@
+const { allBookings } = require("../test-data/booking-data");
+const { allRooms } = require("../test-data/room-data");
+
 class Customer {
-  constructor(id, name) {
+  constructor(customerInfo) {
     //properties
     //customer id
-    this.id = id;
+    this.id = customerInfo.id;
     //customer's name
-    this.name = name;
+    this.name = customerInfo.name;
     //this is the the total amount that a customer has spent in their lifetime at the GBH
     this.totalSpent = 0;
     //this is an array of booking objects with all the customer's past info
     this.bookings = [];  
   }
     //methods
-    selectNextBookableData() {
-        //should update this.nextBooking
+    filterRoomAvailabilityByDate(date, bookings1) {
+      let availableRoomNums = bookings1.filter(booking => {
+        return booking.date !== date
+      });
+      console.log("These are all the available bookings", availableRoomNums);
 
+      let roomNumsOnly = availableRoomNums.map(booking => booking.roomNumber);
+
+      console.log("These are ROOM NUMS #### ONLY", roomNumsOnly);
+      //return roomNumsOnly;
     }
 
     getAvailableRoomDetails() {
