@@ -14,6 +14,7 @@ class Customer {
 
     this.availableRoomNumsByType = [];
   }
+
   filterRoomAvailabilityByDate(date, bookings) {
     this.availableRoomNums = bookings.filter(booking => booking.date !== date)
       .map(booking => booking.roomNumber)
@@ -32,16 +33,30 @@ class Customer {
     return filteredByType; 
   }
   
-  viewCustomerTotalSpending() {
-
+  viewCustomerTotalSpending(bookings, rooms) {
+    this.viewMyBookings(bookings);
+    this.totalSpent = rooms.reduce((amtSpent, room) => {
+      this.bookings.forEach(booking => {
+        if (booking.roomNumber === room.number) {
+          amtSpent += room.costPerNight;
+        }
+      });
+      return amtSpent;
+    }, 0);
   }
 
-  viewMyBookings() {
-
+  viewMyBookings(bookings) {
+    let custBookings  = bookings.filter(booking => booking.userID === this.id);
+    this.bookings = custBookings;
+    return custBookings
   }
 
-  checkRoomAvailability() {
-    return (!this.availableRoomNums.length) ? false : true; 
+  checkRoomAvailability(date, bookings, rooms, roomType) {
+    this.filterRoomAvailabilityByDate(date, bookings);
+    this.filterRoomsByRoomType(rooms, roomType)
+    return (!this.availableRoomNumsByType.length) ? false : true; 
+    //sorry there are no available rooms of the room type you'd like
+    // at the selected date;
   }
 
   /*
