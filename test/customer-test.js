@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 import Customer from '../src/classes/Customer';
 import { allCustomers } from '../src/test-data/customer-data';
-import { allRooms } from '../s'
+import { allRooms } from '../src/test-data/room-data';
 import { bookings } from '../src/test-data/booking-data';
 
 describe.only('Customer', () => {
@@ -41,7 +41,7 @@ describe.only('Customer', () => {
   it('Should show a list of all room details for the rooms available on the booking date', () => {
     const roomDeets = [allRooms[1], allRooms[2]];
     customer1.filterRoomAvailabilityByDate("2020/04/22", bookings);
-    customer1.getAvailableRoomDetails()
-    expect()
+    let roomDetails  = customer1.getAvailableRoomDetails(allRooms)
+    expect(roomDetails).to.deep.equal(roomDeets);
   });
 });
