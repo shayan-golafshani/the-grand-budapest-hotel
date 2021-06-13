@@ -4,7 +4,7 @@ import { allBookings } from '../src/test-data/booking-data';
 const expect = chai.expect;
 
 
-describe.only('Booking', () => {
+describe('Booking', () => {
   let booking1;
   beforeEach(() => { 
     booking1 = new Booking(allBookings[0]);
