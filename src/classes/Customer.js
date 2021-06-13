@@ -1,6 +1,3 @@
-const { allBookings } = require("../test-data/booking-data");
-const { allRooms } = require("../test-data/room-data");
-
 class Customer {
   constructor(customerInfo) {
     //properties
@@ -11,32 +8,30 @@ class Customer {
     //this is the the total amount that a customer has spent in their lifetime at the GBH
     this.totalSpent = 0;
     //this is an array of booking objects with all the customer's past info
-    this.bookings = [];  
+    this.bookings = [];
+
+    this.availableRoomNums = [];
   }
-    //methods
-    filterRoomAvailabilityByDate(date, bookings1) {
-      let availableRoomNums = bookings1.filter(booking => {
-        return booking.date !== date
-      });
-      console.log("These are all the available bookings", availableRoomNums);
+  filterRoomAvailabilityByDate(date, bookings) {
+    this.availableRoomNums = bookings.filter(booking => booking.date !== date)
+      .map(booking => booking.roomNumber)
+    return this.availableRoomNums;
+  }
 
-      let roomNumsOnly = availableRoomNums.map(booking => booking.roomNumber);
+  getAvailableRoomDetails(rooms) {
+    return rooms.filter(
+      room => this.availableRoomNums.includes(room.number));
+  }
 
-      console.log("These are ROOM NUMS #### ONLY", roomNumsOnly);
-      //return roomNumsOnly;
-    }
+  /*
+    //should be shown a list of room details for only rooms that are available on that date
 
-    getAvailableRoomDetails() {
-        //should be shown a list of room details for only rooms that are available on that date
+    //need to check the boolean status of whether or not the room in question is available.
 
-        //need to check the boolean status of whether or not the room in question is available.
+    //return an array of room details....for rooms available on that date
+   */
 
-        //return an array of room details....for rooms available on that date
-    }
-
-    filter
-
-/*
+  /*
 I should be able to select a date for which I’d like to book a room for myself
 Upon selecting a date, I should be shown a list of room details for only rooms that are available on that date
 I should be able to filter the list of available rooms by their roomType property
