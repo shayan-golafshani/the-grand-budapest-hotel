@@ -22,7 +22,7 @@
       <img src="./images/the-grand-budapest-hotel.png" alt="The Grand Budapest Hotel animated as a pink old-fashioned hotel, with a steel sign overhead.">
     </main>
     <aside id="sidebar">
-      <div id="hotel-checkin-info" class="hide">
+      <div id="hotel-checkin-info" class="">
         <p>Sidebar</p>
         <p> The Grand Budapest Hotel</p>
         <p>Welcome : Demaceo Vincent</p>
@@ -30,7 +30,7 @@
       <form action="">
         <label for="check-in">Check-in</label>
         <!-- fix label to match the input type -->
-        <input type="date" class="date">
+        <input type="date" class="date" value="2020-06-13" min="2020-06-13" max="2022-06-13">
         <br>
         <label for="rooms">Choose a room-type:</label>
     <select name="rooms" id="rooms">
@@ -44,7 +44,7 @@
       </form>
     </div>
 
-      <div id="login-area" class="box show">
+      <div id="login-area" class="box hide">
         <form action="../src/scripts.js">
           <h1>Login</h1>
           <input type="text" name="username" id="username" placeholder="Username" required>
