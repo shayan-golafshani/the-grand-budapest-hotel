@@ -11,6 +11,8 @@ class Customer {
     this.bookings = [];
 
     this.availableRoomNums = [];
+
+    this.availableRoomNumsByType = [];
   }
   filterRoomAvailabilityByDate(date, bookings) {
     this.availableRoomNums = bookings.filter(booking => booking.date !== date)
@@ -25,15 +27,22 @@ class Customer {
 
   filterRoomsByRoomType(rooms, roomType) {
     let availableRooms = this.getAvailableRoomDetails(rooms);
-
     let filteredByType = availableRooms.filter(roomObject => roomObject.roomType === roomType);
-    //probably don't actually need the room nums, but I could map over
-    //filteredByType and then actually try and return just the room.number
-
-    console.log('This is your filteredRooms*****', filteredByType)
+    this.availableRoomNumsByType  = filteredByType.map(room => room.number);
     return filteredByType; 
   }
   
+  viewCustomerTotalSpending() {
+
+  }
+
+  viewMyBookings() {
+
+  }
+
+  checkRoomAvailability() {
+    return (!this.availableRoomNums.length) ? false : true; 
+  }
 
   /*
 
