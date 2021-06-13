@@ -57,6 +57,7 @@ main {
  background: #FFCB05;
  border-radius: $main-radius;
   padding-top: $main-padding;
+  overflow: scroll;
 }
 
 #content1 {
@@ -92,6 +93,7 @@ footer {
 #flag{
   width: 10%;
 }
+
 .hotel-title {
   p:first-of-type {
     font-family: $grand-hotel;
@@ -101,6 +103,67 @@ footer {
   color: rgb(194, 166, 27);
 }
 
+.hide {
+  display: none;
+}
+.sidebar {
+  margin: 0;
+  padding:  0;
+  font-family: sans-serif;
+  background: $primary-background;
+}
+
+.box {
+  width: inherit;
+  padding: 40px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%,);
+  background:rgba(234, 147, 249, 0.979);
+  text-align: center;
+
+      h1 {
+      color: $secondary-background;
+      text-transform: uppercase;
+      text-decoration:underline; 
+      font-weight: 500; 
+      }
+    input[type = "text"], input[type = "password"] {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 20 px auto;
+      text-align: center;
+      border: 2px solid #3498db;
+      padding: 14px 10px;
+      width: 5rem;
+      outline: none;
+      color: white;
+      border-radius: 12px;
+        &:focus {
+          width: 6.5rem;
+          border-color: #2ecc71;
+        }
+    }
+    input[type = "submit"] {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      border: 2px solid #2ecc71;
+      padding: 14px 40px;
+      outline: none;
+      color: $secondary-background;
+      border-radius: 24px;
+      transition: 0.2s;
+      cursor: pointer;
+       &:hover {
+         background-color: #2ecc71;
+       }
+    }
+}
 @media (max-width:550px) {
   .container{
     grid-template-columns: 1fr;
