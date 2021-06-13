@@ -8,10 +8,12 @@ import { bookings } from '../src/test-data/booking-data';
 import { Booking } from '../src/classes/Booking';
 
 describe.only('Customer', () => {
-  let booking1, customer1;
+  let booking1, booking2, customer1, customer2;
   beforeEach(() => {
     let booking1 = new Booking(bookings[0]);
+    let booking2 = new Booking(bookings[1]);
     customer1 = new Customer(allCustomers[0]);
+    customer2 = new Customer(allCustomers[1]);
   });
 
   it('Should be a function ', () => {
@@ -59,15 +61,20 @@ describe.only('Customer', () => {
   });
 
   it.only("Should be able to return an array of all the customer's bookings", () => {
-    let total = customer1.viewCustomerTotalSpending(bookings, allRooms);
+    let customerBookings = customer1.viewMyBookings(bookings);
+    expect(customerBookings).to.deep.equal([bookings[0]]);
+  });
 
+  it.only('Should be able to return the total amount a specific customer has spent', () => {
+    let total = customer1.viewCustomerTotalSpending(bookings, allRooms);
     expect(customer1.totalSpent).to.equal(allRooms[0].costPerNight);
   });
 
-  it('Should be able to return the total amount a specific customer has spent', () => {
 
+  it.only("Should be able to check room availability", () => {
+    let bool = customer1.checkRoomAvailability("2020/04/22", bookings, allRooms, "suite");
+    let bool2 = customer2.checkRoomAvailability("2020/04/22", bookings, allRooms, "residential suite");
+    expect(bool).to.be.true;
+    expect(bool2).to.be.false
   });
-
-
-  it("Should be able to spend ")
 });
