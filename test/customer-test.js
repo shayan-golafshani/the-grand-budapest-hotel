@@ -5,11 +5,12 @@ import Customer from '../src/classes/Customer';
 import { allCustomers } from '../src/test-data/customer-data';
 import { allRooms } from '../src/test-data/room-data';
 import { bookings } from '../src/test-data/booking-data';
+import { Booking } from '../src/classes/Booking';
 
 describe.only('Customer', () => {
-  let customer1;
+  let booking1, customer1;
   beforeEach(() => {
-
+    let booking1 = new Booking(bookings[0]);
     customer1 = new Customer(allCustomers[0]);
   });
 
@@ -54,5 +55,17 @@ describe.only('Customer', () => {
     let filteredByType = customer1.filterRoomsByRoomType(allRooms, "suite");
 
     expect(filteredByType).to.deep.equal([allRooms[1]]);
-  })
+    expect(customer1.availableRoomNumsByType).to.deep.equal([allRooms[1].number]);
+  });
+
+  it("Should be able to return an array of all the customer's bookings", () => {
+    //booking1
+    let total = customer1.viewCustomerTotalSpending();
+
+    expect(total).to.equal(booking1.cost)
+  });
+
+  it('Should be able to return the total amount a specific customer has spent', () => {
+
+  });
 });
