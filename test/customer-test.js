@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 import Customer from '../src/classes/Customer';
 import { allCustomers } from '../src/test-data/customer-data';
+import { allRooms } from '../s'
 import { bookings } from '../src/test-data/booking-data';
 
 describe.only('Customer', () => {
@@ -31,9 +32,16 @@ describe.only('Customer', () => {
   });
 
   it('Should return a list of room numbers for rooms that are available on only the booking date', () => {
-    const roomNums = customer1.filterRoomAvailabilityByDate("2020/02/05", bookings)
-    //room number 12 should be excluded from the list
-    const expectedRoomNums = [15, 24, 7, 14, 9, 5, 13, 20, 8, 2, 17]; 
-    expect(roomNums).to.equal(expectedRoomNums);
+    const roomNums = customer1.filterRoomAvailabilityByDate("2020/04/22", bookings)
+   
+    const expectedRoomNums = [2, 3]; 
+    expect(roomNums).to.deep.equal(expectedRoomNums);
+  });
+
+  it('Should show a list of all room details for the rooms available on the booking date', () => {
+    const roomDeets = [allRooms[1], allRooms[2]];
+    customer1.filterRoomAvailabilityByDate("2020/04/22", bookings);
+    customer1.getAvailableRoomDetails()
+    expect()
   });
 });
