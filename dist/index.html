@@ -22,13 +22,14 @@
       <img src="./images/the-grand-budapest-hotel.png" alt="The Grand Budapest Hotel animated as a pink old-fashioned hotel, with a steel sign overhead.">
     </main>
     <aside id="sidebar">
-      <p>Sidebar</p>
-      <p> The Grand Budapest Hotel</p>
-      <p>Welcome : Demaceo Vincent</p>
-      <p class="total-spent"> Lifetime accrued points: insert total spent</p>
+      <div id="hotel-checkin-info" class="hide">
+        <p>Sidebar</p>
+        <p> The Grand Budapest Hotel</p>
+        <p>Welcome : Demaceo Vincent</p>
+        <p class="total-spent"> Lifetime accrued points: insert total spent</p>
       <form action="">
         <label for="check-in">Check-in</label>
-        <!-- fix lable to match the input type -->
+        <!-- fix label to match the input type -->
         <input type="date" class="date">
         <br>
         <label for="rooms">Choose a room-type:</label>
@@ -38,9 +39,20 @@
       <option value="grand">Grand-Suite</option>
       <option value="pent">Penthouse</option>
     </select>
-  <br><br>
+    <br><br>
         <input type="submit" value="Submit">
       </form>
+    </div>
+
+      <div id="login-area" class="box show">
+        <form action="../src/scripts.js">
+          <h1>Login</h1>
+          <input type="text" name="username" id="username" placeholder="Username" required>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <input type="submit" name="" value="Login">
+        </form>
+         
+      </div>
     </aside>
     <section id="content1">
       <h3>Amenities</h3>
