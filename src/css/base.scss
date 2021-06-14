@@ -164,6 +164,73 @@ footer {
        }
     }
 }
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: space-between;
+  align-content: center;
+  width: auto;
+}
+
+.grid-item {
+  border-radius: 15px;
+  background-color: gold ;
+  max-width: 25rem;
+  margin-bottom: 10vh;
+  height: auto;
+  border: 5px solid #212121;
+  padding: 7px;
+  transform: all 1s ease-in-out;
+  transition: 1s;
+   &:hover {
+    box-shadow: 0px 16px 10px 0px #0000003d;
+  transform: scale(1.025);
+  transition: 1s;
+   }
+}
+
+.room-image {
+  width: 80%;
+  opacity: 0.8;
+}
+
+.room-number,
+.room-type,
+.bidet-status,
+.bed-size,
+.room-cost
+ {
+  font-weight: bold;
+  color: black;
+ }
+
+.room-number,  .bidet-status, .bed-size {
+  padding: .25rem;
+  border-radius: 2rem;
+  padding-bottom: 10px;
+  background-color: #FFEB3B;
+}
+
+.room-type {
+  padding: .25rem;
+  font-size: 1.5rem;
+  background-color: #FFEB3B;
+  border-radius: 8rem;
+}
+
+.room-cost {
+  padding: .25rem;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1.5rem;
+  background: $secondary-background;
+  color: black;
+}
+
 @media (max-width:550px) {
   .container{
     grid-template-columns: 1fr;
