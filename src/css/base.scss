@@ -231,6 +231,14 @@ footer {
   color: black;
 }
 
+#booking-button {
+  border-radius: 12px;
+  cursor: pointer;
+  &:hover {
+    background: white;
+  }
+}
+
 @media (max-width:550px) {
   .container{
     grid-template-columns: 1fr;
