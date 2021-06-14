@@ -6,6 +6,8 @@ export let roomSelectionForm = document.getElementById('roomSelectionForm');
 export let displayRoomDetails = document.getElementById('displayRoomDetails');
 export let calendar = document.getElementById('calendar');
 export let roomDropDown = document.getElementById('roomDropDown');
+export let bookingHistory = document.getElementById('bookingHistory');
+//export let searchForRoom = document.getElementById('sendIt');
 
 
 export let renderUserInfo = (currCustomer, bookings, rooms) => {
@@ -13,7 +15,7 @@ export let renderUserInfo = (currCustomer, bookings, rooms) => {
   guestName.innerText = currCustomer.name;
   totalSpent.innerText = currCustomer.viewCustomerTotalSpending(bookings.bookings, rooms.rooms);
   currCustomer.bookings.forEach(booking => {
-    roomSelectionForm.innerHTML += `
+    bookingHistory.innerHTML += `
         <p> Room number ${booking.roomNumber}</p>
         <p>Booked on ${booking.date}</p>
         <hr>
