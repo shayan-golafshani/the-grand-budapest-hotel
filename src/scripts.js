@@ -29,9 +29,11 @@ import {
   renderUserInfo,
 } from './domUpdates';
 
+let testingBtn = document.querySelector('#testButton');
+let searchForRoom = document.getElementById('sendIt');
 //put event listeners on here. 
 
-window.onload = startUp;
+window.onload = startUp();
 let startUpData = [];
 
 function startUp() {
@@ -49,55 +51,15 @@ function startUp() {
       renderUserInfo(currCustomer, bookings, rooms);
     }).catch(err => console.error("Error is happening scripts", err));
 }
-// calendar.addEventListener('change', () => {
-// //   e.preventDefault();
-//   //startUpData = [customers, currCustomer, rooms, bookings];
-//   console.log("YOU CHANGED THE BOOKING DATE MATE!");
-//   //   let currCustomer = new Customer(startUpData[1]);
-//   //   let bookings = startUpData[3];
-//   //   let rooms = startUpData[2];
 
-//   //   displayRoomDetails.innerHTML = "";
+testingBtn.addEventListener('click', () => consoleLoggy());
 
+// searchForRoom.addEventListener('click', () => consoleLoggy());
 
-// //   currCustomer.filterRoomAvailabilityByDate(calendar.value, bookings.bookings);
-// //   currCustomer.getAvailableRoomDetails(rooms.rooms)
-// //     .forEach((roomDetail, index) => {
-// //       displayRoomDetails.innerHTML += `
-// //         <div class="grid-item grid-item-${index}">
-// //         <p class="room-number"> Room number: ${roomDetail.number}</p>
-// //         <img class=room-image" src="./images/${roomDetail.roomType}.png" alt="This is a ${roomDetail.roomType}">
-// //         <p class="room-type">Room type: ${roomDetail.roomType}</p>
-// //         <p class="bidet-status"> It is ${roomDetail.bidet} that this room includes life-changing bidet. </p>
-// //         <p class="bed-size">There are ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
-// //         <p class="room-cost">Total: ${roomDetail.costPerNight * 100} Forints</p>
-// //         <button id="booking-button">Book Now!</button>
-// //     </div>
-// //         `
-// //     });
-// });
-
-// roomDropDown.addEventListener('change', (event) => {
-
-//   let currCustomer = new Customer(startUpData[1]);
-//   let bookings = startUpData[3];
-//   let rooms = startUpData[2];
-
-//   displayRoomDetails.innerHTML = "";
+let consoleLoggy = () => {
+    debugger;
+    // e.preventDefault();
+  console.log("LOGGY");
+}
 
 
-//   currCustomer.filterRoomAvailabilityByDate(calendar.value, bookings.bookings);
-//   currCustomer.filterRoomsByRoomType(rooms.rooms, roomDropDown.value)
-//     .forEach((roomDetail, index) => {
-//       displayRoomDetails.innerHTML += `
-//       <div class="grid-item grid-item-${index}">
-//       <p class="room-number"> Room number: ${roomDetail.number}</p>
-//       <img class=room-image" src="./images/${roomDetail.roomType}.png" alt="This is a ${roomDetail.roomType}">
-//       <p class="room-type">Room type: ${roomDetail.roomType}</p>
-//       <p class="bidet-status"> It is ${roomDetail.bidet} that this room includes life-changing bidet. </p>
-//       <p class="bed-size">There are ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
-//       <p class="room-cost">Total: ${roomDetail.costPerNight * 100} Forints</p>
-//       <button id="booking-button">Book Now!</button>
-//   </div>
-//       `
-//     });
