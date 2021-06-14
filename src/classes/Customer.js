@@ -35,7 +35,7 @@ class Customer {
   
   viewCustomerTotalSpending(bookings, rooms) {
     this.viewMyBookings(bookings);
-    this.totalSpent = rooms.reduce((amtSpent, room) => {
+    return this.totalSpent = rooms.reduce((amtSpent, room) => {
       this.bookings.forEach(booking => {
         if (booking.roomNumber === room.number) {
           amtSpent += room.costPerNight;
