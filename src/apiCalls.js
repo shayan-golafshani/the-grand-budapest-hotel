@@ -4,7 +4,7 @@ let baseUrl = 'http://localhost:3001/api/v1/'
 
 let getData = (endpoint, id) => {
   let url = (id) ? `${baseUrl}${endpoint}/${id}` : `${baseUrl}${endpoint}`;    
-  fetch(url)
+  return fetch(url)
     .then(response => {
       console.log(response)
       return response.json()
