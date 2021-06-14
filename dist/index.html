@@ -18,8 +18,12 @@
       </div>
     </nav>
     <main>
+      
       <p>Main Content Area</p>
       <img class="hide" src="./images/the-grand-budapest-hotel.png" alt="The Grand Budapest Hotel animated as a pink old-fashioned hotel, with a steel sign overhead.">
+      <section id="displayRoomDetails" class="grid-container">
+        
+      </section>
     </main>
     <aside id="sidebar">
       <div id="hotel-checkin-info" class="">
@@ -30,7 +34,7 @@
       <form id="roomSelectionForm" action="">
         <label for="check-in">Check-in</label>
         <!-- fix label to match the input type -->
-        <input type="date" class="date" value="2020-06-13" min="2020-06-13" max="2022-06-13">
+        <input id="calendar" type="date" class="date" value="2020-06-13" min="2020-06-13" max="2022-06-13">
         <br>
         <label for="rooms">Choose a room-type:</label>
     <select name="rooms" id="rooms">
