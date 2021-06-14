@@ -26,6 +26,12 @@ class Customer {
       room => this.availableRoomNums.includes(room.number));
   }
 
+  //THIS IS CURRENTLY NOT NEEDED
+  // getAvailableRoomDetailsByType(rooms) {
+  //   return rooms.filter(
+  //     room => this.availableRoomNumsByType.includes(room.number)); 
+  // }
+
   filterRoomsByRoomType(rooms, roomType) {
     let availableRooms = this.getAvailableRoomDetails(rooms);
     let filteredByType = availableRooms.filter(roomObject => roomObject.roomType === roomType);
