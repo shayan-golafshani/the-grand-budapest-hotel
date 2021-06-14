@@ -40,6 +40,7 @@ function startUp() {
         roomSelectionForm.innerHTML += `
         <p> Room number ${booking.roomNumber}</p>
         <p>Booked on ${booking.date}</p>
+        <hr>
         `    
       });
       currCustomer.filterRoomAvailabilityByDate(calendar.value, bookings.bookings);
@@ -51,7 +52,7 @@ function startUp() {
         <p class="bidet-status"> room includes life-changing bidet: ${roomDetail.bidet} </p>
         <p class="bed-size">Comes equipped with ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
         <p class="room-cost">Total: ${roomDetail.costPerNight}</p>
-        <button>Book Now!</button>
+        <button id="booking-button">Book Now!</button>
     </div>
         `
       });
