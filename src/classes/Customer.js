@@ -16,14 +16,20 @@ class Customer {
   }
 
   filterRoomAvailabilityByDate(date, bookings) {
-    this.availableRoomNums = bookings.filter(booking => booking.date !== date)
-      .map(booking => booking.roomNumber)
+    //change name to unavailableRoomsByDate
+    //console.log(date, "DATE INSIDE METHOD *****")
+    this.availableRoomNums = bookings.filter(booking => booking.date === date)
+    .map(booking => booking.roomNumber)
+    console.log("THESE ARE THE NUMS FOR UNAVAiALABLE ROOMS", this.availableRoomNums);
     return this.availableRoomNums;
   }
 
   getAvailableRoomDetails(rooms) {
+    console.log("Available ROOM LIST", rooms.filter(
+      room => !this.availableRoomNums.includes(room.number)))
+
     return rooms.filter(
-      room => this.availableRoomNums.includes(room.number));
+      room => !this.availableRoomNums.includes(room.number));
   }
 
   //THIS IS CURRENTLY NOT NEEDED
