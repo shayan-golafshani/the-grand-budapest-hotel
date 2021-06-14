@@ -17,6 +17,8 @@ console.log('This is the JavaScript entry file - your code begins here.');
 let totalSpent = document.getElementById('totalSpent');
 let guestName = document.getElementById('guestName');
 let roomSelectionForm = document.getElementById('roomSelectionForm');
+let calendar = document.getElementById('calendar');
+let displayRoomDetails = document.getElementById('displayRoomDetails');
 //put event listeners on here. 
 
 window.onload = startUp;
@@ -39,6 +41,19 @@ function startUp() {
         <p> Room number ${booking.roomNumber}</p>
         <p>Booked on ${booking.date}</p>
         `    
+      });
+      currCustomer.filterRoomAvailabilityByDate(calendar.value, bookings.bookings);
+      currCustomer.getAvailableRoomDetails(rooms.rooms).forEach((roomDetail, index) => {
+        displayRoomDetails.innerHTML += `
+        <div class="grid-item grid-item-${index}">
+        <p class="room-number">Number: ${roomDetail.number}</p>
+        <p class="room-type">Room Type: ${roomDetail.roomType}</p>
+        <p class="bidet-status"> room includes life-changing bidet: ${roomDetail.bidet} </p>
+        <p class="bed-size">Comes equipped with ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
+        <p class="room-cost">Total: ${roomDetail.costPerNight}</p>
+        <button>Book Now!</button>
+    </div>
+        `
       });
     })//.catch(err => //console.error("Error is happening scripts", err));
 //totalSpent.innerText = "Bobby and Shauna rock" + ;
