@@ -27,6 +27,7 @@ import {
   calendar,
   roomDropDown,
   renderUserInfo,
+  renderRoomCards,
 } from './domUpdates';
 
 let testingBtn = document.querySelector('#testButton');
@@ -37,7 +38,7 @@ window.onload = startUp();
 let startUpData = [];
 
 function startUp() {
-  retrieveData(1)
+  retrieveData(4)
     .then(promise => {
       let customers = promise[0];
       let currCustomer = promise[1];
@@ -45,6 +46,7 @@ function startUp() {
       let bookings = promise[3];
       startUpData = [customers, currCustomer, rooms, bookings];
       //console.log(promise);
+      console.log(startUpData, "HEY your data on startup");
       currCustomer = new Customer(currCustomer);
 
       //import render info here...>>>>
@@ -52,14 +54,51 @@ function startUp() {
     }).catch(err => console.error("Error is happening scripts", err));
 }
 
-testingBtn.addEventListener('click', () => consoleLoggy());
+calendar.addEventListener('change', () => updateByDate());
+roomDropDown.addEventListener('change', () => updateByRoomType());
 
-// searchForRoom.addEventListener('click', () => consoleLoggy());
 
-let consoleLoggy = () => {
-    debugger;
-    // e.preventDefault();
-  console.log("LOGGY");
+
+let updateByDate = () => {
+  let currCustomer = new Customer(startUpData[1]);
+  let bookings = startUpData[3];
+  let rooms =  startUpData[2];
+
+  let date = calendar.value.split("-").join('/')
+  
+  currCustomer.filterRoomAvailabilityByDate(date, bookings.bookings);
+        
+  let availableRoomDetails = currCustomer.getAvailableRoomDetails(rooms.rooms)
+  renderRoomCards(availableRoomDetails);  
+
+  //Filter based on the drop-down value
+  if (roomDropDown.value) {
+    let filteredRoomsByType = currCustomer.filterRoomsByRoomType(
+      rooms.rooms, roomDropDown.value)
+    renderRoomCards(filteredRoomsByType);
+  }
+}
+
+let updateByRoomType = () => {
+  let currCustomer = new Customer(startUpData[1]);
+  let rooms =  startUpData[2];
+  let bookings = startUpData[3];
+
+
+  let date = calendar.value.split("-").join('/');
+  
+
+  currCustomer.filterRoomAvailabilityByDate(date, bookings.bookings);
+  //Filter based on the drop-down value
+  if (roomDropDown.value) {
+    let filteredRoomsByType = currCustomer.filterRoomsByRoomType(
+      rooms.rooms, roomDropDown.value)
+    renderRoomCards(filteredRoomsByType);
+  } else {
+      //otherwise show all rooms;
+    let availableRoomDetails = currCustomer.getAvailableRoomDetails(rooms.rooms)
+    renderRoomCards(availableRoomDetails);    
+  }
 }
 
 
