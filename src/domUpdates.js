@@ -9,7 +9,6 @@ export let roomDropDown = document.getElementById('roomDropDown');
 export let bookingHistory = document.getElementById('bookingHistory');
 //export let searchForRoom = document.getElementById('sendIt');
 
-
 export let renderUserInfo = (currCustomer, bookings, rooms) => {
   
   guestName.innerText = currCustomer.name;
@@ -23,19 +22,22 @@ export let renderUserInfo = (currCustomer, bookings, rooms) => {
   });
 
   //Filter based on calendar value
-  currCustomer.filterRoomAvailabilityByDate(calendar.value, bookings.bookings);
+   let date = calendar.value.split("-").join('/')
+   currCustomer.filterRoomAvailabilityByDate(date, bookings.bookings);
         
   let availableRoomDetails = currCustomer.getAvailableRoomDetails(rooms.rooms)
   renderRoomCards(availableRoomDetails);  
 
-  if (roomDropDown.value) {
-    let filteredRoomsByType = currCustomer.filterRoomsByRoomType(
-      rooms.rooms, roomDropDown.value)
-    renderRoomCards(filteredRoomsByType);
-  }
+  //Filter based on the drop-down value
+ 
+    // let filteredRoomsByType = currCustomer.filterRoomsByRoomType(
+    //   rooms.rooms, roomDropDown.value)
+    // renderRoomCards(filteredRoomsByType);
+
 }
 
-let renderRoomCards = (array) => {
+export let renderRoomCards = (array) => {
+  displayRoomDetails.innerHTML = '';
   array.forEach((roomDetail, index) => {
     displayRoomDetails.innerHTML += `
         <div class="grid-item grid-item-${index}">
@@ -44,7 +46,7 @@ let renderRoomCards = (array) => {
         <p class="room-type">Room type: ${roomDetail.roomType}</p>
         <p class="bidet-status"> It is ${roomDetail.bidet} that this room includes life-changing bidet. </p>
         <p class="bed-size">There are ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
-        <p class="room-cost">Total: ${roomDetail.costPerNight * 100} Forints</p>
+        <p class="room-cost">Total: ${Math.floor(roomDetail.costPerNight * 100)} Forints</p>
         <button id="bookingButton">Book Now!</button>
     </div>
         `
