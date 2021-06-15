@@ -8,6 +8,7 @@ export let calendar = document.getElementById('calendar');
 export let roomDropDown = document.getElementById('roomDropDown');
 export let bookingHistory = document.getElementById('bookingHistory');
 //export let searchForRoom = document.getElementById('sendIt');
+export let mainCardsArea = document.getElementById("mainCardsArea");
 
 export let renderUserInfo = (currCustomer, bookings, rooms) => {
   
@@ -47,7 +48,7 @@ export let renderRoomCards = (array) => {
         <p class="bidet-status"> It is ${roomDetail.bidet} that this room includes life-changing bidet. </p>
         <p class="bed-size">There are ${roomDetail.numBeds} ${roomDetail.bedSize}-sized bed. </p>
         <p class="room-cost">Total: ${Math.floor(roomDetail.costPerNight * 100)} Forints</p>
-        <button id="bookingButton">Book Now!</button>
+        <button class="booking-button" id=${roomDetail.number}>Book Now!</button>
     </div>
         `
   });
