@@ -13,7 +13,7 @@ import './images/suite.png'
 import './images/residential suite.png'
 import './images/single room.png'
 
-import { retrieveData } from './apiCalls';
+import { postData, retrieveData } from './apiCalls';
 import Customer from './classes/Customer';
 
 console.log('This is the JavaScript entry file - your code begins here.');
@@ -105,9 +105,25 @@ let updateByRoomType = () => {
 mainCardsArea.addEventListener('click', (e) => bookRoom(e));
 
 let bookRoom = (e) => {
+    
   if (e.target.closest('button')) {
-    console.log(e.target.closest('button').id)
+    let roomNumber = e.target.closest('button').id
+    let userID = startUpData[1].id; //suss
+    let date = calendar.value.split("-").join('/');
+
+    
+
+
+    let postableData = {
+      userID,
+      date,
+      roomNumber,
+    }
+
+    console.log(postableData);
+    //postData(postableData)
   }
+
 
   //customer id is startUpArr[1].id
   //roomNumber is e.target.closest('button')
