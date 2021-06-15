@@ -107,7 +107,7 @@ mainCardsArea.addEventListener('click', (e) => bookRoom(e));
 let bookRoom = (e) => {
     
   if (e.target.closest('button')) {
-    let roomNumber = e.target.closest('button').id
+    let roomNumber = parseInt(e.target.closest('button').id)
     let userID = startUpData[1].id; //suss
     let date = calendar.value.split("-").join('/');
 
@@ -121,7 +121,11 @@ let bookRoom = (e) => {
     }
 
     console.log(postableData);
-    //postData(postableData)
+    postData(postableData).then(
+        response => console.log(response)
+    ).catch(err => {
+        console.error(err);
+    })
   }
 
 
