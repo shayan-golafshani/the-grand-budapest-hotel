@@ -126,7 +126,12 @@ let bookRoom = (e) => {
     ).catch(err => {
         console.error(err);
     })
-  }
+
+    //console.log("This is the event", e.target.closest('button'));
+    e.target.closest('button').setAttribute("disabled", "true");
+    e.target.closest('button').innerText = "Booked!"
+}
+
 
 
   //customer id is startUpArr[1].id
