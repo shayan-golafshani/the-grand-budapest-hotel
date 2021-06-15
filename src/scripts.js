@@ -28,6 +28,7 @@ import {
   roomDropDown,
   renderUserInfo,
   renderRoomCards,
+  mainCardsArea,
 } from './domUpdates';
 
 let testingBtn = document.querySelector('#testButton');
@@ -38,7 +39,7 @@ window.onload = startUp();
 let startUpData = [];
 
 function startUp() {
-  retrieveData(4)
+  retrieveData(1)
     .then(promise => {
       let customers = promise[0];
       let currCustomer = promise[1];
@@ -95,10 +96,25 @@ let updateByRoomType = () => {
       rooms.rooms, roomDropDown.value)
     renderRoomCards(filteredRoomsByType);
   } else {
-      //otherwise show all rooms;
+    //otherwise show all rooms;
     let availableRoomDetails = currCustomer.getAvailableRoomDetails(rooms.rooms)
     renderRoomCards(availableRoomDetails);    
   }
 }
 
+mainCardsArea.addEventListener('click', (e) => bookRoom(e));
 
+let bookRoom = (e) => {
+  if (e.target.closest('button')) {
+    console.log(e.target.closest('button').id)
+  }
+
+  //customer id is startUpArr[1].id
+  //roomNumber is e.target.closest('button')
+  //date calendar.value.split("-").join('/')
+  //
+  /*
+    { "userID": 48, "date": "2019/09/23", "roomNumber": 4 }
+
+     */
+}
